@@ -1,12 +1,21 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { ShareCommonView } from 'react-native-share-common';
+import { Main, Detail } from 'react-native-share-common';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ShareCommonView color="#32a852" style={styles.box} />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Main" component={Main} />
+          <Stack.Screen name="Detail" component={Detail} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 }
@@ -14,8 +23,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   box: {
     width: 60,
