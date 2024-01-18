@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { Main, Detail } from 'react-native-share-common';
+import CommonNavigation from 'react-native-share-common';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,9 +11,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Main" component={Main} />
-          <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Init" component={CommonNavigation(Stack)} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
